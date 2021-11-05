@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { htmlToText } from "html-to-text";
 
 export class SqlResultWebView {
     public static show(data, title) {
@@ -46,7 +47,7 @@ export class SqlResultWebView {
             body += "<tr>";
             for (const field in row) {
                 if (row.hasOwnProperty(field)) {
-                    body += "<td>" + row[field] + "</td>";
+                    body += "<td>" + htmlToText(row[field]) + "</td>";
                 }
             }
 
